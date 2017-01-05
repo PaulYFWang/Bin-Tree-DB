@@ -1,0 +1,75 @@
+/* 
+ * File:   Parser.h
+ * Author: user
+ *
+ * Created on November 24, 2016, 2:53 PM
+ */
+
+#ifndef PARSER_H
+#define PARSER_H
+#include <cstdlib>
+#include <string>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include "TreeDB.h"
+#include "DBentry.h"
+#include "TreeNode.h"
+//#define MAX_NODE_NUMBER 5000
+
+using namespace std;
+class Parser{
+private:
+//    Resistor* resistorArray;
+//    Node* nodeArray;
+    string stream, command;
+    stringstream actualstream;
+    int maxNodeNumber, maxResistors;
+    string name;
+
+    double resistance;
+    bool nodeRangeError, streamFail;
+    string all;
+    TreeDB tree;
+    double voltage;
+public:
+   Parser(stringstream &stream);
+   Parser();
+   ~Parser();
+//Parameter parsing based on specific functions, also getters for varialbes
+ 
+void insert();
+void find();
+void printAll();
+void printProbes();
+
+void remove();
+void removeAll();
+void countActive();
+void updateStatus();
+
+string getCommand();
+void newCommandStream(stringstream &stream_);
+void extractCommand();
+
+void activeInsert();
+void activePrintAll();
+void activePrintProbes();
+void activeFind();
+
+void activeRemove();
+void activeRemoveAll();
+void activeCountActive();
+void activeUpdateStatus();
+
+
+   // Checks to see if the resistor can be added to poistion rIndex
+   // in the resistor array. Returns true if yes, otherwise false.
+   
+};
+
+
+
+#endif	/* PARSER_H */
+
+
